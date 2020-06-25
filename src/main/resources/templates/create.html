@@ -1,0 +1,16 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List</title>
+</head>
+<body>
+<p><a href="/customer/list-customer">Customer List</a></p>
+<th:block th:if="${message}">
+    <p th:text="${message}"/>
+</th:block>
+<form th:action="@{/customer/create-customer}" th:object="${customer}" method="post">
+    First Name: <input type="text" th:field="*{firstName}"/> <br/>
+    Last Name: <input type="text" th:field="*{lastName}"/> <br/>
+    <input type="submit" value="Create Customer"/>
+</form>
+</body>
+</html>

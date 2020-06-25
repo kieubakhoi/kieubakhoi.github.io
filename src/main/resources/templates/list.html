@@ -1,0 +1,28 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List</title>
+</head>
+<body>
+<h1>List Customer</h1>
+<th:block th:if="${message}">
+    <p th:text="${message}"/>
+</th:block>
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr  th:each=" l : ${list}">
+        <td th:text="${l.id}"></td>
+        <td th:text="${l.firstName}"></td>
+        <td th:text="${l.lastName}"></td>
+        <td><a th:href="@{/customer/editCustomer/} + ${l.id}">Edit</a> </td>
+        <td><a th:href="@{/customer/removeCustomer/} + ${l.id}">Delete</a> </td>
+    </tr>
+</table>
+
+</body>
+</html>
